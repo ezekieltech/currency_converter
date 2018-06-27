@@ -7,12 +7,9 @@ const url = 'https://free.currencyconverterapi.com/api/v5/convert?q='
           + query;
 
 
-const getme = fetch(url)
-  .then(function(response) {
-      const convertToJson = response.json();
-      console.log(convertToJson);
-    //return response.json();
-  })
-  .then(function(myJson) {
-    console.log(myJson);
+fetch(url)
+  .then((response) => response.json())
+  .then((myJson) => {
+      const theAnswer = myJson.results[query].val * amount
+      console.log(theAnswer);
 });
